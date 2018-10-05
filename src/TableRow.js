@@ -5,19 +5,18 @@ import "./App.css";
 class TableRow extends Component {
   render() {
     let statIcon = () => {
-      console.log(this.props.task.status);
-      return this.props.task.status
+      return this.props.item.status
         ? "fa fa-check-circle"
         : "fa fa-times-circle";
     };
 
     let iconColor = () => {
-      return this.props.task.status ? { color: "green" } : { color: "red" };
+      return this.props.item.status ? { color: "green" } : { color: "red" };
     };
 
     let taskPriority = () => {
-      if (this.props.task.priority === "high") return { color: "red" };
-      else if (this.props.task.priority === "medium")
+      if (this.props.item.priority === "high") return { color: "red" };
+      else if (this.props.item.priority === "medium")
         return { color: "orange" };
       else return { color: "green" };
     };
@@ -27,8 +26,8 @@ class TableRow extends Component {
         <td>
           <i className={statIcon()} style={iconColor()} />
         </td>
-        <td>{this.props.task.task}</td>
-        <td style={taskPriority()}>{this.props.task.priority.toUpperCase()}</td>
+        <td>{this.props.item.task}</td>
+        <td style={taskPriority()}>{this.props.item.priority.toUpperCase()}</td>
       </tr>
     );
   }

@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 
 import "./App.css";
-import tasks from "./data";
 
 import TableRow from "./TableRow";
 
 class Table extends Component {
   render() {
-    let taskRow = tasks.map(task => {
-      return <TableRow task={task} />;
+    let taskRows = this.props.items.map(item => {
+      return <TableRow item={item} key={item.task} />;
     });
 
     return (
@@ -19,7 +18,7 @@ class Table extends Component {
             <th>TASK</th>
             <th>PRIORITY</th>
           </tr>
-          {taskRow}
+          {taskRows}
         </tbody>
       </table>
     );
