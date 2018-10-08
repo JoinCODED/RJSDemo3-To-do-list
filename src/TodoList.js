@@ -12,14 +12,14 @@ class TodoList extends Component {
 
     return (
       <table className="table">
-        <tbody>
+        <thead>
           <tr className="headerRow">
             <th>STATUS</th>
             <th>TASK</th>
             <th>PRIORITY</th>
           </tr>
-          {taskRows}
-        </tbody>
+        </thead>
+        <tbody>{taskRows}</tbody>
       </table>
     );
   }
