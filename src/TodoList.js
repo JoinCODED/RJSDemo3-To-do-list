@@ -2,19 +2,19 @@ import React, { Component } from "react";
 
 import "./App.css";
 
-import TableRow from "./TableRow";
+import TodoItem from "./TodoItem";
 
-class Table extends Component {
+class TodoList extends Component {
   render() {
-    let taskRows = this.props.items.map(item => {
-      return <TableRow item={item} key={item.task} />;
+    const taskRows = this.props.items.map(item => {
+      return <TodoItem item={item} key={item.task} />;
     });
 
     return (
       <table className="table">
         <tbody>
           <tr className="headerRow">
-            <th>STAT</th>
+            <th>STATUS</th>
             <th>TASK</th>
             <th>PRIORITY</th>
           </tr>
@@ -24,4 +24,4 @@ class Table extends Component {
     );
   }
 }
-export default Table;
+export default TodoList;

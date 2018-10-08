@@ -3,8 +3,7 @@ import React from "react";
 import "font-awesome/css/font-awesome.min.css";
 import "./App.css";
 
-// Components
-import Table from "./Table";
+import TodoList from "./TodoList";
 
 // Data
 import items from "./data";
@@ -13,7 +12,7 @@ function App() {
   return (
     <div className="rectangle">
       <p className="title">TO DO LIST</p>
-      <Table items={items} />
+      <TodoList items={items} />
     </div>
   );
 }
