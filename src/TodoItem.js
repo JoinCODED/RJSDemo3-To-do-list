@@ -4,19 +4,21 @@ import "./App.css";
 
 class TableRow extends Component {
   render() {
-    const item = this.props.item;
-    let statusIcon;
 
-    if (item.done) {
-      statusIcon = "fa fa-check-circle";
-    } else {
-      statusIcon = "fa fa-times-circle";
-    }
+const item = this.props.item;
+
+    const statusIcon = done => {
+      if (done) {
+        return "fa fa-check-circle";
+      } else {
+        return "fa fa-times-circle";
+      }
+    };
 
     return (
       <tr className="row">
         <td>
-          <i className={statusIcon} />
+          <i className={statusIcon(item.done)} />
         </td>
         <td>{item.task}</td>
         <td className={item.priority}>{item.priority.toUpperCase()}</td>
