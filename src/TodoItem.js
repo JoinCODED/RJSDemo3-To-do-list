@@ -1,19 +1,17 @@
-import React, { Component } from "react";
+import React from "react";
 
 import "./App.css";
 
-class TableRow extends Component {
-  render() {
+function TableRow(props) {
+  const item = props.item;
 
-const item = this.props.item;
-
-    const statusIcon = done => {
-      if (done) {
-        return "fa fa-check-circle";
-      } else {
-        return "fa fa-times-circle";
-      }
-    };
+  const statusIcon = done => {
+    if (done) {
+      return "fa fa-check-circle";
+    } else {
+      return "fa fa-times-circle";
+    }
+  };
 
     return (
       <tr className="row">
@@ -25,6 +23,6 @@ const item = this.props.item;
       </tr>
     );
   }
-}
+
 
 export default TableRow;
