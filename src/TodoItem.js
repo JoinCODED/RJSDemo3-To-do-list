@@ -2,7 +2,7 @@ import React from "react";
 
 import "./App.css";
 
-function TableRow(props) {
+function TodoItem(props) {
   const item = props.item;
 
   const statusIcon = done => {
@@ -25,4 +25,4 @@ function TableRow(props) {
   }
 
 
-export default TableRow;
+export default TodoItem;
