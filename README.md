@@ -13,6 +13,7 @@ function ToDoItem() {
       return "fa fa-times-circle";
     }
   };
+
   return (
     <tr>
       <td>
@@ -41,6 +42,7 @@ import ToDoItem from "./ToDoItem";
     </tr>
   </thead>
   <tbody>
+    ...
     <ToDoItem />
   </tbody>
 </table>;
@@ -60,6 +62,7 @@ import ToDoItem from "./ToDoItem";
     </tr>
   </thead>
   <tbody>
+    ...
     <ToDoItem />
     <ToDoItem />
     <ToDoItem />
@@ -81,9 +84,9 @@ import ToDoItem from "./ToDoItem";
     </tr>
   </thead>
   <tbody>
-    <ToDoItem task="Go to the supermarket" />
-    <ToDoItem task="Study for exam" />
-    <ToDoItem task="Cook dinner" />
+    <ToDoItem task={tasks[0].task} />
+    <ToDoItem task={tasks[1].task} />
+    <ToDoItem task={tasks[2].task} />
   </tbody>
 </table>;
 ```
@@ -125,7 +128,7 @@ function ToDoItem(props) {
 export default ToDoItem;
 ```
 
-7. Draw a diagram on the board
+7. Draw a diagram on the board (first component tree diagram: App -task-> ToDoItem)
 
 8. Pass another prop
 
@@ -141,9 +144,9 @@ import ToDoItem from "./ToDoItem";
     </tr>
   </thead>
   <tbody>
-    <ToDoItem task="Go to the supermarket" done={false} />
-    <ToDoItem task="Study for exam" done={true} />
-    <ToDoItem task="Cook dinner" done={false} />
+    <ToDoItem task={tasks[0].task} done={task[0].done} />
+    <ToDoItem task={tasks[1].task} done={task[1].done} />
+    <ToDoItem task={tasks[2].task} done={task[2].done} />
   </tbody>
 </table>;
 ```
@@ -152,7 +155,9 @@ import ToDoItem from "./ToDoItem";
 
 10. Inside `ToDoItem.js`, check the `console.log`
 
-11. Replace `true` with `props.true`
+11. Update the diagram on the board.
+
+12. Replace `true` with `props.done`
 
 ```javascript
 function ToDoItem(props) {
@@ -170,7 +175,7 @@ function ToDoItem(props) {
 }
 ```
 
-12. Pass a third prop
+13. Pass a third prop
 
 ```javascript
 import ToDoItem from "./ToDoItem";
@@ -184,18 +189,32 @@ import ToDoItem from "./ToDoItem";
     </tr>
   </thead>
   <tbody>
-    <ToDoItem task="Go to the supermarket" done={false} priority="low" />
-    <ToDoItem task="Study for exam" done={true} priority="middle" />
-    <ToDoItem task="Cook dinner" done={false} priority="high" />
+    <ToDoItem
+      task={tasks[0].task}
+      done={task[0].done}
+      priority={tasks[0].priority}
+    />
+    <ToDoItem
+      task={tasks[1].task}
+      done={task[1].done}
+      priority={tasks[1].priority}
+    />
+    <ToDoItem
+      task={tasks[2].task}
+      done={task[2].done}
+      priority={tasks[2].priority}
+    />
   </tbody>
 </table>;
 ```
 
-13. Go to React Dev Tools again, and show them `task`, `done` and `priority` inside the `Props`
+14. Go to React Dev Tools again, and show them `task`, `done` and `priority` inside the `Props`
 
-14. Inside `ToDoItem.js`, check the `console.log`
+15. Inside `ToDoItem.js`, check the `console.log`
 
-15. Replace `middle` with `props.priority`
+16. Update the diagram on the board.
+
+17. Replace `middle` with `props.priority`
 
 ```javascript
 function ToDoItem(props) {
@@ -213,53 +232,11 @@ function ToDoItem(props) {
 }
 ```
 
-16. In `App.js`, import tasks from `data.js` and send as props
+18. Replace the three props with 1 task per instance
 
 ```javascript
 // Components
 import ToDoItem from "./ToDoItem";
-
-// Data
-import tasks from "./data";
-
-return (
-  <table>
-    <thead>
-      <tr>
-        <th>STATUS</th>
-        <th>TASK</th>
-        <th>PRIORITY</th>
-      </tr>
-    </thead>
-    <tbody>
-      <ToDoItem
-        task={tasks[0].task}
-        done={tasks[0].done}
-        priority={tasks[0].priority}
-      />
-      <ToDoItem
-        task={tasks[1].task}
-        done={tasks[1].done}
-        priority={tasks[1].priority}
-      />
-      <ToDoItem
-        task={tasks[2].task}
-        done={tasks[2].done}
-        priority={tasks[2].priority}
-      />
-    </tbody>
-  </table>
-);
-```
-
-17. Replace the three props with 1 task per instance
-
-```javascript
-// Components
-import ToDoItem from "./ToDoItem";
-
-// Data
-import tasks from "./data";
 
 return (
   <table>
@@ -279,7 +256,7 @@ return (
 );
 ```
 
-18. Fix the props in `ToDoItem`
+18. Show props in the Dev Tools. Show console log. Fix the props in `ToDoItem`
 
 ```javascript
 function ToDoItem(props) {
@@ -297,7 +274,9 @@ function ToDoItem(props) {
 }
 ```
 
-19. Iterate through the array using .map
+19. Explain why manually making a list is bad. What happens if the list size isn't known? Better to have a dynamic list.
+
+20. Iterate through the array using `.map`. Explain `key`. Show the warning.
 
 ```javascript
 // Components
@@ -308,6 +287,7 @@ import tasks from "./data";
 
 function App() {
   const taskRows = tasks.map(item => <ToDoItem item={item} key={item.task} />);
+
   return (
     ...
     <table className="table">
@@ -325,7 +305,9 @@ function App() {
 export default ToDoList;
 ```
 
-20. Create a container component: `ToDoList`
+21. Explain Presentational vs Container components.
+
+22. Create a container component: `ToDoList`
 
 ```javascript
 import React from "react";
@@ -351,7 +333,7 @@ function ToDoList() {
 export default ToDoList;
 ```
 
-21. Call `ToDoList.js` in `App.js`
+23. Call `ToDoList.js` in `App.js`
 
 ```javascript
 import ToDoList from "./ToDoList";
@@ -368,7 +350,7 @@ function App() {
 export default App;
 ```
 
-22. Send `tasks` to `ToDoList`
+24. Send `tasks` to `ToDoList`
 
 ```javascript
 function App() {
@@ -381,7 +363,7 @@ function App() {
 }
 ```
 
-23. Edit `ToDoList`
+25. Edit `ToDoList`
 
 ```javascript
 import React from "react";
@@ -408,3 +390,7 @@ function ToDoList(props) {
 }
 export default ToDoList;
 ```
+
+26. Update the diagram on the board (App -tasks-> ToDoList -item-> ToDoItem).
+
+27. Compare the before and after. Highlight how much cleaner and easier to understand and reason about the code is.
