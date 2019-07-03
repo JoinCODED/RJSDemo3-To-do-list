@@ -2,12 +2,12 @@ import React from "react";
 
 import "./App.css";
 
-import TodoItem from "./TodoItem";
+import ToDoItem from "./ToDoItem";
 
-function TodoList(props) {
-  const taskRows = props.items.map(item => {
-    return <TodoItem item={item} key={item.task} />;
-  });
+function ToDoList(props) {
+  const taskRows = props.tasks.map(item => (
+    <ToDoItem item={item} key={item.task} />
+  ));
 
   return (
     <table className="table">
@@ -23,4 +23,4 @@ function TodoList(props) {
   );
 }
 
-export default TodoList;
+export default ToDoList;

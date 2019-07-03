@@ -2,7 +2,7 @@ import React from "react";
 
 import "./App.css";
 
-function TodoItem(props) {
+function ToDoItem(props) {
   const item = props.item;
 
   const statusIcon = done => {
@@ -13,16 +13,16 @@ function TodoItem(props) {
     }
   };
 
-    return (
-      <tr className="row">
-        <td>
-          <i className={statusIcon(item.done)} />
-        </td>
-        <td>{item.task}</td>
-        <td className={item.priority}>{item.priority.toUpperCase()}</td>
-      </tr>
-    );
-  }
+  return (
+    <tr className="row">
+      <td>
+        <i className={statusIcon(item.done)} />
+      </td>
+      <td>{item.task}</td>
+      <td className={item.priority}>{item.priority.toUpperCase()}</td>
+    </tr>
+  );
+}
 
 
-export default TodoItem;
+export default ToDoItem;
