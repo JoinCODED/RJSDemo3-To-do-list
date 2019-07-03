@@ -32,6 +32,20 @@ function App() {
             <td>Go to the supermarket</td>
             <td className="middle">MIDDLE</td>
           </tr>
+          <tr>
+            <td>
+              <i className={statusIcon(false)} />
+            </td>
+            <td>Study for exam</td>
+            <td className="low">LOW</td>
+          </tr>
+          <tr>
+            <td>
+              <i className={statusIcon(false)} />
+            </td>
+            <td>Cook dinner</td>
+            <td className="high">HIGH</td>
+          </tr>
         </tbody>
       </table>
     </div>
