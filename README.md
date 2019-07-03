@@ -1,5 +1,34 @@
 PRESENTATION LINK: https://docs.google.com/presentation/d/1VhahKb_U-eNWm488M4Ea0u5GgR3-BqnAGB0v5hvW2IU/edit#slide=id.p
 
+1. Create a component: ToDoItem
+```javascript
+import React from "react";
+
+function ToDoItem(props) {
+  const statusIcon = done => {
+    if (done) {
+      return "fa fa-check-circle";
+    } else {
+      return "fa fa-times-circle";
+    }
+  };
+  return (
+    <tr>
+      <td>
+        <i className={statusIcon(true)} />
+      </td>
+      <td>Go to the supermarket</td>
+      <td className="middle">MIDDLE</td>
+    </tr>
+  );
+}
+
+export default ToDoItem;
+
+```
+
+
+
 1. Create a component: ToDoList
 
 ```javascript
