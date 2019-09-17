@@ -1,4 +1,4 @@
-let tasks = [
+let items = [
   {
     task: "Go to the supermarket",
     done: true,
@@ -21,4 +21,4 @@ let tasks = [
   }
 ];
 
-export default tasks;
+export default items;

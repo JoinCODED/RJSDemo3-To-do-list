@@ -4,7 +4,7 @@ import "font-awesome/css/font-awesome.min.css";
 import "./App.css";
 
 // Data
-import tasks from "./data";
+import items from "./data";
 
 function App() {
   const statusIcon = done => {
@@ -29,29 +29,29 @@ function App() {
         <tbody>
           <tr>
             <td>
-              <i className={statusIcon(tasks[0].done)} />
+              <i className={statusIcon(items[0].done)} />
             </td>
-            <td>{tasks[0].task}</td>
-            <td className={tasks[0].priority}>
-              {tasks[0].priority.toUpperCase()}
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <i className={statusIcon(tasks[1].done)} />
-            </td>
-            <td>{tasks[1].task}</td>
-            <td className={tasks[1].priority}>
-              {tasks[1].priority.toUpperCase()}
+            <td>{items[0].task}</td>
+            <td className={items[0].priority}>
+              {items[0].priority.toUpperCase()}
             </td>
           </tr>
           <tr>
             <td>
-              <i className={statusIcon(tasks[2].done)} />
+              <i className={statusIcon(items[1].done)} />
             </td>
-            <td>{tasks[2].task}</td>
-            <td className={tasks[2].priority}>
-              {tasks[2].priority.toUpperCase()}
+            <td>{items[1].task}</td>
+            <td className={items[1].priority}>
+              {items[1].priority.toUpperCase()}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <i className={statusIcon(items[2].done)} />
+            </td>
+            <td>{items[2].task}</td>
+            <td className={items[2].priority}>
+              {items[2].priority.toUpperCase()}
             </td>
           </tr>
         </tbody>
