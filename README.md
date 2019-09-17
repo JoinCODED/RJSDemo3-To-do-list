@@ -2,7 +2,7 @@ PRESENTATION LINK: https://docs.google.com/presentation/d/1VhahKb_U-eNWm488M4Ea0
 
 1. Create a component: `ToDoItem`
 
-   ```javascript
+   ```jsx
    import React from "react";
 
    function ToDoItem() {
@@ -22,7 +22,7 @@ PRESENTATION LINK: https://docs.google.com/presentation/d/1VhahKb_U-eNWm488M4Ea0
 
 2. Import then call `ToDoItem` in `App.js`
 
-   ```javascript
+   ```jsx
    import ToDoItem from "./ToDoItem";
 
    <table>
@@ -42,7 +42,7 @@ PRESENTATION LINK: https://docs.google.com/presentation/d/1VhahKb_U-eNWm488M4Ea0
 
 3. Call `ToDoItem` more than one time
 
-   ```javascript
+   ```jsx
    import ToDoItem from "./ToDoItem";
 
    <table>
@@ -66,7 +66,7 @@ Wondnerful. However, this the `ToDoItem` component is static. How do we make thi
 
 4. From the parent component, we can send props to child components through props. Send a different `task` to every instance of the component. These tasks are coming from `data.js` (show them the `data.js` file).
 
-   ```javascript
+   ```jsx
    import ToDoItem from "./ToDoItem";
 
    <table>
@@ -78,9 +78,9 @@ Wondnerful. However, this the `ToDoItem` component is static. How do we make thi
        </tr>
      </thead>
      <tbody>
-       <ToDoItem task={tasks[0].task} />
-       <ToDoItem task={tasks[1].task} />
-       <ToDoItem task={tasks[2].task} />
+       <ToDoItem task={items[0].task} />
+       <ToDoItem task={items[1].task} />
+       <ToDoItem task={items[2].task} />
      </tbody>
    </table>;
    ```
@@ -89,7 +89,7 @@ Wondnerful. However, this the `ToDoItem` component is static. How do we make thi
 
 6. Inside `ToDoItem.js`, pass props to the component and `console.log` it
 
-   ```javascript
+   ```jsx
    import React from "react";
 
    function ToDoItem(props) {
@@ -102,7 +102,7 @@ Wondnerful. However, this the `ToDoItem` component is static. How do we make thi
 
 7. Replace the task with `props.task`
 
-   ```javascript
+   ```jsx
    import React from "react";
 
    function ToDoItem(props) {
@@ -124,9 +124,9 @@ Wondnerful. However, this the `ToDoItem` component is static. How do we make thi
 
 8. Draw a diagram on the board (first component tree diagram: App -task-> ToDoItem)
 
-8) Pass another prop
+9. Pass another prop
 
-   ```javascript
+   ```jsx
    import ToDoItem from "./ToDoItem";
 
    <table>
@@ -138,20 +138,20 @@ Wondnerful. However, this the `ToDoItem` component is static. How do we make thi
        </tr>
      </thead>
      <tbody>
-       <ToDoItem task={tasks[0].task} priority={tasks[0].priority} />
-       <ToDoItem task={tasks[1].task} priority={tasks[1].priority} />
-       <ToDoItem task={tasks[2].task} priority={tasks[2].priority} />
+       <ToDoItem task={items[0].task} priority={items[0].priority} />
+       <ToDoItem task={items[1].task} priority={items[1].priority} />
+       <ToDoItem task={items[2].task} priority={items[2].priority} />
      </tbody>
    </table>;
    ```
 
-9. Go to React Dev Tools again, and show them `task` and `priority` inside the `Props`
+10. Go to React Dev Tools again, and show them `task` and `priority` inside the `Props`
 
-10. Inside `ToDoItem.js`, check the `console.log`
+11. Inside `ToDoItem.js`, check the `console.log`
 
-11. Replace `middle` with `props.priority`
+12. Replace `middle` with `props.priority`
 
-    ```javascript
+    ```jsx
     function ToDoItem(props) {
       console.log("[ToDoItem.js] props: ", props)
       ...
@@ -167,11 +167,11 @@ Wondnerful. However, this the `ToDoItem` component is static. How do we make thi
     }
     ```
 
-12. Update the diagram on the board to show that we are now passing "priority" too.
+13. Update the diagram on the board to show that we are now passing "priority" too.
 
-13. Pass a third prop
+14. Pass a third prop
 
-    ```javascript
+    ```jsx
     import ToDoItem from "./ToDoItem";
 
     <table>
@@ -184,27 +184,27 @@ Wondnerful. However, this the `ToDoItem` component is static. How do we make thi
       </thead>
       <tbody>
         <ToDoItem
-          task={tasks[0].task}
-          priority={tasks[0].priority}
-          done={task[0].done}
+          task={items[0].task}
+          priority={items[0].priority}
+          done={items[0].done}
         />
         <ToDoItem
-          task={tasks[1].task}
-          priority={tasks[0].priority}
-          done={task[1].done}
+          task={items[1].task}
+          priority={items[0].priority}
+          done={items[1].done}
         />
         <ToDoItem
-          task={tasks[2].task}
-          priority={tasks[0].priority}
-          done={task[2].done}
+          task={items[2].task}
+          priority={items[0].priority}
+          done={items[2].done}
         />
       </tbody>
     </table>;
     ```
 
-14. We need the function from `App.js` that makes the status icon dynamic. Cut and paste `statusIcon` into `ToDoItem.js`. Then, call it inside the `className` of the `<i />` tag.
+15. We need the function from `App.js` that makes the status icon dynamic. Cut and paste `statusIcon` into `ToDoItem.js`. Then, call it inside the `className` of the `<i />` tag.
 
-    ```javascript
+    ```jsx
     function ToDoItem(props) {
       console.log("[ToDoItem.js] props: ", props)
 
@@ -228,194 +228,196 @@ Wondnerful. However, this the `ToDoItem` component is static. How do we make thi
     }
     ```
 
-15. Go to React Dev Tools again, and show them `task`, `done` and `priority` inside the `Props`
+16. Go to React Dev Tools again, and show them `task`, `done` and `priority` inside the `Props`
 
-16. Inside `ToDoItem.js`, check the `console.log`
+17. Inside `ToDoItem.js`, check the `console.log`
 
-17. Update the diagram on the board.
+18. Update the diagram on the board.
 
-18. To avoid repition in our code, do the following: Replace the three props with 1 task per instance
+19. To avoid repition in our code, do the following: Replace the three props with 1 `item` prop per instance
 
-```javascript
-// Components
-import ToDoItem from "./ToDoItem";
+    ```jsx
+    // Components
+    import ToDoItem from "./ToDoItem";
 
-return (
-  <table>
-    <thead>
-      <tr>
-        <th>STATUS</th>
-        <th>TASK</th>
-        <th>PRIORITY</th>
-      </tr>
-    </thead>
-    <tbody>
-      <ToDoItem item={tasks[0]} />
-      <ToDoItem item={tasks[1]} />
-      <ToDoItem item={tasks[2]} />
-    </tbody>
-  </table>
-);
-```
+    return (
+      <table>
+        <thead>
+          <tr>
+            <th>STATUS</th>
+            <th>TASK</th>
+            <th>PRIORITY</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ToDoItem item={items[0]} />
+          <ToDoItem item={items[1]} />
+          <ToDoItem item={items[2]} />
+        </tbody>
+      </table>
+    );
+    ```
 
-18. Show props in the Dev Tools. Show console log. Fix the props in `ToDoItem`
+20. Show props in the Dev Tools. Show console log. Fix the props in `ToDoItem`
 
-```javascript
-function ToDoItem(props) {
-  console.log("[ToDoItem.js] props: ", props)
-  ...
-  return (
-    <tr>
-      <td>
-        <i className={statusIcon(props.item.done)} />
-      </td>
-      <td>{props.item.task}</td>
-      <td className={props.item.priority}>{props.item.priority.toUpperCase()}</td>
-    </tr>
-  );
-}
-```
-
-19. Explain why manually making a list is bad. What happens if the list size isn't known? Better to have a dynamic list.
-
-20. In `App.js`, iterate through the array using `.map`. Explain `key`. Show the warning.
-
-```javascript
-// Components
-import ToDoItem from "./ToDoItem";
-
-// Data
-import tasks from "./data";
-
-function App() {
-  const taskRows = tasks.map(item => <ToDoItem item={item} key={item.task} />);
-
-  return (
-    ...
-    <table className="table">
-      <thead>
-        <tr className="headerRow">
-          <th>STATUS</th>
-          <th>TASK</th>
-          <th>PRIORITY</th>
-        </tr>
-      </thead>
-      <tbody>{taskRows}</tbody>
-    </table>
-  );
-}
-export default ToDoList;
-```
-
-21. Explain Presentational vs Container components from discussion slides.
-
-22. Create a container component: `ToDoList`
-
-```javascript
-import React from "react";
-
-// Components
-import ToDoItem from "./ToDoItem";
-
-function ToDoList() {
-  const taskRows = tasks.map(item => <ToDoItem item={item} key={item.task} />);
-  return (
-    <table>
-      <thead>
+    ```jsx
+    function ToDoItem(props) {
+      console.log("[ToDoItem.js] props: ", props)
+      ...
+      return (
         <tr>
-          <th>STATUS</th>
-          <th>TASK</th>
-          <th>PRIORITY</th>
+          <td>
+            <i className={statusIcon(props.item.done)} />
+          </td>
+          <td>{props.item.task}</td>
+          <td className={props.item.priority}>{props.item.priority.toUpperCase()}</td>
         </tr>
-      </thead>
-      <tbody>{taskRows}</tbody>
-    </table>
-  );
-}
-export default ToDoList;
-```
+      );
+    }
+    ```
 
-23. Call `ToDoList.js` in `App.js`
+21. Explain why manually making a list is bad. What happens if the list size isn't known? Better to have a dynamic list.
 
-```javascript
-import ToDoList from "./ToDoList";
+22. In `App.js`, iterate through the array using `.map`. Explain `key`. Show the warning.
 
-function App() {
-  return (
-    <div className="rectangle">
-      <p className="title">TO DO LIST</p>
-      <ToDoList />
-    </div>
-  );
-}
+    ```jsx
+    // Components
+    import ToDoItem from "./ToDoItem";
 
-export default App;
-```
+    // Data
+    import items from "./data";
 
-This will trigger an error `tasks not defined`.
-
-24. Send `tasks` to `ToDoList` as props from `App.js`
-
-```javascript
-function App() {
-  return (
-    <div className="rectangle">
-      <p className="title">TO DO LIST</p>
-      <ToDoList tasks={tasks} />
-    </div>
-  );
-}
-```
-
-25. Edit `ToDoList`
-
-```javascript
-import React from "react";
-
-// Components
-import ToDoItem from "./ToDoItem";
-
-function ToDoList(props) {
-  const taskRows = props.tasks.map(item => (
-    <ToDoItem item={item} key={item.task} />
-  ));
-  return (
-    <table>
-      <thead>
-        <tr>
-          <th>STATUS</th>
-          <th>TASK</th>
-          <th>PRIORITY</th>
-        </tr>
-      </thead>
-      <tbody>{taskRows}</tbody>
-    </table>
-  );
-}
-export default ToDoList;
-```
-
-26. Update the diagram on the board (App -tasks-> ToDoList -item-> ToDoItem).
-
-27. Compare the before and after. Highlight how much cleaner and easier to understand and reason about the code is.
-
-28. Show them why having a container `ToDoList` is useful.
-
-29. In `App.js`, use the `<ToDoList />` multiple times while passing it different filtered lists
-
-    ```javascript
     function App() {
-      const highPriority = items.map(item => item.priority === "high");
-      const middlePriority = items.map(item => item.priority === "middle");
-      const lowPriority = items.map(item => item.priority === "low");
+      const taskRows = props.items.map(item => <ToDoItem item={item} key={item.task} />);
+
+      return (
+        ...
+        <table className="table">
+          <thead>
+            <tr className="headerRow">
+              <th>STATUS</th>
+              <th>TASK</th>
+              <th>PRIORITY</th>
+            </tr>
+          </thead>
+          <tbody>{taskRows}</tbody>
+        </table>
+      );
+    }
+    export default ToDoList;
+    ```
+
+23. Explain Presentational vs Container components from discussion slides.
+
+24. Create a container component: `ToDoList`
+
+    ```jsx
+    import React from "react";
+
+    // Components
+    import ToDoItem from "./ToDoItem";
+
+    function ToDoList() {
+      const taskRows = props.items.map(item => (
+        <ToDoItem item={item} key={item.task} />
+      ));
+      return (
+        <table>
+          <thead>
+            <tr>
+              <th>STATUS</th>
+              <th>TASK</th>
+              <th>PRIORITY</th>
+            </tr>
+          </thead>
+          <tbody>{taskRows}</tbody>
+        </table>
+      );
+    }
+    export default ToDoList;
+    ```
+
+25. Call `ToDoList.js` in `App.js`
+
+    ```jsx
+    import ToDoList from "./ToDoList";
+
+    function App() {
       return (
         <div className="rectangle">
           <p className="title">TO DO LIST</p>
-          <ToDoList tasks={highPriority} />
-          <ToDoList tasks={lowPriority} />
+          <ToDoList />
+        </div>
+      );
+    }
+
+    export default App;
+    ```
+
+    This will trigger an error `items not defined`.
+
+26. Send `items` to `ToDoList` as props from `App.js`
+
+    ```jsx
+    function App() {
+      return (
+        <div className="rectangle">
+          <p className="title">TO DO LIST</p>
+          <ToDoList items={items} />
         </div>
       );
     }
     ```
 
-    Change the tasks being passed around to `<ToDoList />` to show that we use the same component to display different data.
+27. Edit `ToDoList`
+
+    ```jsx
+    import React from "react";
+
+    // Components
+    import ToDoItem from "./ToDoItem";
+
+    function ToDoList(props) {
+      const taskRows = props.items.map(item => (
+        <ToDoItem item={item} key={item.task} />
+      ));
+      return (
+        <table>
+          <thead>
+            <tr>
+              <th>STATUS</th>
+              <th>TASK</th>
+              <th>PRIORITY</th>
+            </tr>
+          </thead>
+          <tbody>{taskRows}</tbody>
+        </table>
+      );
+    }
+    export default ToDoList;
+    ```
+
+28. Update the diagram on the board (App -items-> ToDoList -item-> ToDoItem).
+
+29. Compare the before and after. Highlight how much cleaner and easier to understand and reason about the code is.
+
+30. Show them why having a container `ToDoList` is useful.
+
+    In `App.js`, use the `<ToDoList />` multiple times while passing it different filtered lists
+
+    ```jsx
+    function App() {
+      const highPriority = items.filter(item => item.priority === "high");
+      const middlePriority = items.filter(item => item.priority === "middle");
+      const lowPriority = items.filter(item => item.priority === "low");
+      return (
+        <div className="rectangle">
+          <p className="title">TO DO LIST</p>
+          <ToDoList items={highPriority} />
+          <ToDoList items={lowPriority} />
+        </div>
+      );
+    }
+    ```
+
+    Change the items being passed around to `<ToDoList />` to show that we use the same component to display different data.
