@@ -6,18 +6,10 @@ PRESENTATION LINK: https://docs.google.com/presentation/d/1VhahKb_U-eNWm488M4Ea0
 import React from "react";
 
 function ToDoItem() {
-  const statusIcon = done => {
-    if (done) {
-      return "fa fa-check-circle";
-    } else {
-      return "fa fa-times-circle";
-    }
-  };
-
   return (
     <tr>
       <td>
-        <i className={statusIcon(true)} />
+        <i className={"fa fa-check-circle"} />
       </td>
       <td>Go to the supermarket</td>
       <td className="middle">MIDDLE</td>
@@ -70,7 +62,9 @@ import ToDoItem from "./ToDoItem";
 </table>;
 ```
 
-4. Explain sending items through props and send a different `task` to every instance of the component
+Wondnerful. However, this the `ToDoItem` component is static. How do we make this component dynamic? The magic of props.(Explain props in discussion slides).
+
+4. From the parent component, we can send props to child components through props. Send a different `task` to every instance of the component. These tasks are coming from `data.js` (show them the `data.js` file).
 
 ```javascript
 import ToDoItem from "./ToDoItem";
@@ -99,7 +93,7 @@ import ToDoItem from "./ToDoItem";
 import React from "react";
 
 function ToDoItem(props) {
-  console.log("Inside ToDoItem Component", props)
+  console.log("[ToDoItem.js] props: ", props)
   ...
 }
 
@@ -112,12 +106,12 @@ export default ToDoItem;
 import React from "react";
 
 function ToDoItem(props) {
-  console.log("Inside ToDoItem Component", props)
+  console.log("[ToDoItem.js] props: ", props)
   ...
   return (
     <tr>
       <td>
-        <i className={statusIcon(true)} />
+        <i className="fa fa-check-circle" />
       </td>
       <td>{props.task}</td>
       <td className="middle">MIDDLE</td>
@@ -155,13 +149,21 @@ import ToDoItem from "./ToDoItem";
 
 10. Inside `ToDoItem.js`, check the `console.log`
 
-11. Update the diagram on the board.
+11. Update the diagram on the board to show that we are now passing "done" too.
 
-12. Replace `true` with `props.done`
+12. We need the function from `App.js` that makes the status icon dynamic. Copy and paste `statusIconn` into `ToDoItem.js`. Then, call it inside the `className` of the `<i />` tag.
 
 ```javascript
 function ToDoItem(props) {
-  console.log("Inside ToDoItem Component", props)
+  console.log("[ToDoItem.js] props: ", props)
+
+    const statusIcon = done => {
+    if (done) {
+      return "fa fa-check-circle";
+    } else {
+      return "fa fa-times-circle";
+    }
+  };
   ...
   return (
     <tr>
@@ -218,7 +220,7 @@ import ToDoItem from "./ToDoItem";
 
 ```javascript
 function ToDoItem(props) {
-  console.log("Inside ToDoItem Component", props)
+  console.log("[ToDoItem.js] props: ", props)
   ...
   return (
     <tr>
@@ -232,7 +234,7 @@ function ToDoItem(props) {
 }
 ```
 
-18. Replace the three props with 1 task per instance
+18. To avoid repition in our code, do the following: Replace the three props with 1 task per instance
 
 ```javascript
 // Components
@@ -260,7 +262,7 @@ return (
 
 ```javascript
 function ToDoItem(props) {
-  console.log("Inside ToDoItem Component", props)
+  console.log("[ToDoItem.js] props: ", props)
   ...
   return (
     <tr>
@@ -276,7 +278,7 @@ function ToDoItem(props) {
 
 19. Explain why manually making a list is bad. What happens if the list size isn't known? Better to have a dynamic list.
 
-20. Iterate through the array using `.map`. Explain `key`. Show the warning.
+20. In `App.js`, iterate through the array using `.map`. Explain `key`. Show the warning.
 
 ```javascript
 // Components
@@ -305,7 +307,7 @@ function App() {
 export default ToDoList;
 ```
 
-21. Explain Presentational vs Container components.
+21. Explain Presentational vs Container components from discussion slides.
 
 22. Create a container component: `ToDoList`
 
@@ -350,7 +352,9 @@ function App() {
 export default App;
 ```
 
-24. Send `tasks` to `ToDoList`
+This will trigger an error `tasks not defined`.
+
+24. Send `tasks` to `ToDoList` as props from `App.js`
 
 ```javascript
 function App() {
