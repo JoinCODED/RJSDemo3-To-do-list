@@ -2,6 +2,7 @@ import React from "react";
 
 import "./App.css";
 
+// Components
 import ToDoItem from "./ToDoItem";
 
 function ToDoList(props) {

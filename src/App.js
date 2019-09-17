@@ -3,6 +3,7 @@ import React from "react";
 import "font-awesome/css/font-awesome.min.css";
 import "./App.css";
 
+// Components
 import TodoList from "./TodoList";
 
 // Data
