@@ -6,7 +6,8 @@ import "./App.css";
 import ToDoItem from "./ToDoItem";
 
 function ToDoList(props) {
-  const taskRows = props.tasks.map(item => (
+  
+  const taskRows = props.items.map(item => (
     <ToDoItem item={item} key={item.task} />
   ));
 
